@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<link href="/assets/logo.png" rel="icon" type="image/png"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="/manifest.json" rel="manifest"/>
+<title>
+   Narain's Portfolio
+  </title>
+<script crossorigin="" src="/assets/index-CHfcwnPq.js" type="module">
+</script>
+<link crossorigin="" href="/assets/index-DP2r3SZB.css" rel="stylesheet"/>
+<script type="module">
+   if (window.self === window.top) {
+  let lastPath = "";
+  function getPageNameFromPath(path) {
+    const segments = path.split("/").filter(Boolean);
+    return segments[0] || null;
+  }
+  function trackPageView() {
+    const path = window.location.pathname;
+    if (path === lastPath) return;
+    lastPath = path;
+    const pageName = getPageNameFromPath(path) || "home";
+    const appId = "69b6b2b39df73aec26befe07";
+    if (!appId) return;
+    fetch(`/app-logs/${appId}/log-user-in-app/${pageName}`, {
+      method: "POST",
+    }).catch(() => {});
+  }
+  const originalPushState = history.pushState.bind(history);
+  history.pushState = function (...args) {
+    originalPushState(...args);
+    trackPageView();
+  };
+  const originalReplaceState = history.replaceState.bind(history);
+  history.replaceState = function (...args) {
+    originalReplaceState(...args);
+    trackPageView();
+  };
+  window.addEventListener("popstate", trackPageView);
+  trackPageView();
+}
+  </script>
+<meta content="A professional portfolio showcasing machine learning projects, data analysis, and AI-driven solutions developed by Narain Karthigeyan." name="description"/>
+<meta content="Narain's Portfolio" property="og:title"/>
+<meta content="A professional portfolio showcasing machine learning projects, data analysis, and AI-driven solutions developed by Narain Karthigeyan." property="og:description"/>
+<meta content="/assets/logo.png" property="og:image"/>
+<meta content="/" property="og:url"/>
+<meta content="website" property="og:type"/>
+<meta content="Narain's Portfolio" property="og:site_name"/>
+<meta content="Narain's Portfolio" name="twitter:title"/>
+<meta content="A professional portfolio showcasing machine learning projects, data analysis, and AI-driven solutions developed by Narain Karthigeyan." name="twitter:description"/>
+<meta content="/assets/logo.png" name="twitter:image"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="/" name="twitter:url"/>
+<meta content="yes" name="mobile-web-app-capable"/>
+<meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+<meta content="Narain's Portfolio" name="apple-mobile-web-app-title"/>
+<link href="/index.html" rel="canonical"/>
+</head>
+<body>
+<div id="root">
+</div>
+</body>
+</html>
